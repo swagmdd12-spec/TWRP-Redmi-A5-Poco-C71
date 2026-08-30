@@ -7,8 +7,13 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-    - name: Nettoyage Espace Disque
-      uses: recovery-actions/cleanup-action@main
+    - name: Maximiser l'espace disque
+      run: |
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /usr/local/lib/android
+        sudo rm -rf /opt/ghc
+        sudo rm -rf /usr/local/share/boost
+        sudo rm -rf "$AGENT_TOOLSDIRECTORY"
 
     - name: Outils de compilation
       run: |
